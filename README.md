@@ -40,14 +40,14 @@ graph TD
 - **Automated ROI Evaluation**: Includes an evaluation suite (`src/evaluation.py`) calculating Agent decision accuracy, false-positive reduction rates, and total human analyst hours saved.
 - **RL Feedback Loop**: Disagreements made via the Streamlit UI inject context back into the RAG engine to "steer" future predictions without massive DPO/PPO re-trainings.
 
-## 🚀 Live Demo Details
-To run the live Streamlit dashboard locally:
+## 🚀 Live Demo
+**👉 Try the live interactive dashboard:** [Live Demo on Streamlit Cloud](https://llm-powered-fraud-investigation-agent-4yk3ytrzotyxjxqvx2ernu.streamlit.app/)
+
+### Running Locally
 1. Ensure your local LLM server (e.g. Ollama) is running:
 `ollama run llama3`
 2. Run the dashboard:
 `streamlit run app.py`
-
-*(Note for cloud deployment: When deploying to Streamlit Community Cloud, `ChatOllama` relies on a local runner. For cloud, configure `src/agent.py` to use `ChatOpenAI` or `HuggingFaceEndpoint` via respective API keys).*
 
 ## 🛠️ Repository Structure
 - `data/` : SQLite Databases and simulated transaction CSVs.
