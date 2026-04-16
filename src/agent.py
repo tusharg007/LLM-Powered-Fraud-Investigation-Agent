@@ -4,7 +4,7 @@ from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, ToolMe
 from langgraph.graph import StateGraph, END
 from langchain_community.chat_models import ChatOllama
 from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
-from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
 from src.tools import query_user_history, ml_feature_explainer
 import os
 
