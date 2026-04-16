@@ -21,7 +21,7 @@ hf_token = os.environ.get("HUGGINGFACEHUB_API_TOKEN")
 if hf_token:
     print("Using HuggingFace API for LLM...")
     llm = HuggingFaceEndpoint(
-        repo_id="mistralai/Mistral-7B-Instruct-v0.2",
+        repo_id="HuggingFaceH4/zephyr-7b-beta",
         task="text-generation",
         max_new_tokens=512,
         do_sample=False,
