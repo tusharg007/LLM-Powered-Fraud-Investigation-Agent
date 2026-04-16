@@ -131,7 +131,7 @@ def run_agent(transaction_data: dict, rag_context: str = "") -> dict:
     """Helper function to run the agent on a single transaction."""
     inputs = {
         "messages": [],
-        "transaction": json.dumps(transaction_data),
+        "transaction": json.dumps(transaction_data, default=str),
         "rag_context": rag_context
     }
     
