@@ -4,7 +4,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.11+-blue.svg" alt="Python">
   <img src="https://img.shields.io/badge/LangGraph-Agentic-green" alt="LangGraph">
-  <img src="https://img.shields.io/badge/Streamlit-Live%20Demo-red.svg" alt="Streamlit">
+  <a href="https://llm-powered-fraud-investigation-agent-4yk3ytrzotyxjxqvx2ernu.streamlit.app/"><img src="https://img.shields.io/badge/Streamlit-Live%20Demo-red.svg" alt="Streamlit"></a>
   <img src="https://img.shields.io/badge/Backend-SQLite-lightgrey" alt="SQLite">
 </p>
 
@@ -35,7 +35,7 @@ graph TD
 ```
 
 ## ✨ Key Features
-- **Dual-Layer Analytics**: XGBoost for rapid, high-volume anomaly filtering, paired with Llama-3/Mistral via LangGraph for deep-dive investigation.
+- **Dual-Layer Analytics**: XGBoost for rapid, high-volume anomaly filtering, paired with Qwen via LangGraph for deep-dive investigation.
 - **RAG-Enabled Precedent Search**: Agent recalls historical fraud topologies from a Chroma Vector Database to inform new decisions.
 - **Automated ROI Evaluation**: Includes an evaluation suite (`src/evaluation.py`) calculating Agent decision accuracy, false-positive reduction rates, and total human analyst hours saved.
 - **RL Feedback Loop**: Disagreements made via the Streamlit UI inject context back into the RAG engine to "steer" future predictions without massive DPO/PPO re-trainings.
