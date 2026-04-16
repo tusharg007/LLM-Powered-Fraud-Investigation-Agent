@@ -21,7 +21,7 @@ hf_token = os.environ.get("HUGGINGFACEHUB_API_TOKEN")
 if hf_token:
     print("Using HuggingFace API for LLM...")
     llm = HuggingFaceEndpoint(
-        repo_id="HuggingFaceH4/zephyr-7b-beta",
+        repo_id="Qwen/Qwen2.5-7B-Instruct",
         task="text-generation",
         max_new_tokens=512,
         do_sample=False,
