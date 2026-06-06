@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Environment variables
+.env
+
+# Data
+data/*.csv
+!data/mock_ecommerce_fraud.csv
+
+# HuggingFace & Vector DB caching
+.cache/
+.chroma/
+
+# Streamlit config (if you place secrets here locally)
+.streamlit/secrets.toml

@@ -1,0 +1,22 @@
+{
+    "fixed_size_chunk": {
+        "config": {
+            "chunk_size": 512,
+            "overlap": 50
+        },
+        "total_chunks": 200,
+        "precision_at_5_per_query": [0.8, 0.6, 0.8, 1.0, 0.6],
+        "precision_at_5_mean": 0.76
+    },
+    "semantic_chunk": {
+        "config": {
+            "model": "all-MiniLM-L6-v2",
+            "cosine_threshold": 0.85
+        },
+        "total_chunks": 214,
+        "precision_at_5_per_query": [1.0, 0.8, 0.8, 1.0, 0.8],
+        "precision_at_5_mean": 0.88
+    },
+    "num_eval_documents": 200,
+    "num_queries": 5
+}
