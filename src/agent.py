@@ -161,6 +161,50 @@ def run_agent(transaction_data: dict, rag_context: str = "") -> dict:
             "next_action": "Escalate"
         }
 
+def chat_with_agent(user_message: str, context: str = "", chat_history: list = None) -> str:
+    """Conversational chat function for follow-up questions about fraud cases.
+    
+    Uses the same LLM instance (HuggingFace or Ollama) to answer free-form
+    questions about fraud investigation, optionally grounded in a prior
+    transaction context.
+    """
+    system_prompt = (
+        "You are a senior Fraud Investigation Assistant for an enterprise Fintech system. "
+        "You help analysts understand fraud patterns, explain transaction risk factors, "
+        "and answer questions about fraud detection methodology. "
+        "Be concise, professional, and reference specific data when available.\n\n"
+    )
+    
+    if context:
+        system_prompt += f"Current Transaction Context:\n{context}\n\n"
+    
+    # Build message list from history
+    messages = [HumanMessage(content=system_prompt + "Begin conversation.")]
+    messages.append(AIMessage(content="I'm ready to assist with your fraud investigation. What would you like to know?"))
+    
+    if chat_history:
+        for msg in chat_history:
+            if msg["role"] == "user":
+                messages.append(HumanMessage(content=msg["content"]))
+            else:
+                messages.append(AIMessage(content=msg["content"]))
+    
+    messages.append(HumanMessage(content=user_message))
+    
+    try:
+        response = llm.invoke(messages)
+        return response.content
+    except Exception as e:
+        return (
+            f"⚠️ The LLM API is currently unavailable (rate-limited or loading). "
+            f"Here's what I can tell you based on the data:\n\n"
+            f"Your question: *{user_message}*\n\n"
+            f"As a fraud investigation assistant, I'd recommend reviewing the transaction's "
+            f"device fingerprint, IP geolocation consistency, and purchase velocity. "
+            f"Please try again in a moment when the API is available."
+        )
+
+
 if __name__ == "__main__":
     # Test script locally
     sample_txn = {"user_id": 12345, "purchase_value": 500, "ip_address": "192.168.1.1"}
